@@ -1,0 +1,5 @@
+streamlit pandas
+README.md
+app,py
+menu_data.csv
+requirements.txt
