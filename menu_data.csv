@@ -1,6 +1,6 @@
-dish_name,category,ingredients,cost
-Smoked Salmon Salad,Starter,Salmon;Lettuce;Lemon,85
-Duck Breast with Orange Sauce,Main,Duck;Orange;Potato,180
-Apple Tart,Dessert,Apple;Butter;Flour,60
-Pan Roasted Cod with Herb Gnocchi,Main,Cod fillet;Potato;Egg yolk;Plain flour;Herbs;Clams;Parsley;Garlic;Shallot;White wine;Fish stock;Whipping cream;Samphire;Butter;Olive oil,320
-Pan-Fried Fish seabass fillet with Samphire / Squid / taro gnocchi / Zucchini & ratatouille,Main,Seabass;Samphire;Squid;Taro gnocchi;Zucchini;Ratatouille,320
+dish_name,category,ingredients,price,allergen
+Smoked Salmon Salad,Starter,Salmon;Lettuce;Lemon,85,Fish
+Duck Breast with Orange Sauce,Main,Duck;Orange;Potato,180,None
+Apple Tart,Dessert,Apple;Butter;Flour,60,Gluten,Dairy
+Pan Roasted Cod with Herb Gnocchi,Main,Cod fillet;Potato;Egg yolk;Plain flour;Herbs;Clams;Parsley;Garlic;Shallot;White wine;Fish stock;Whipping cream;Samphire;Butter;Olive oil,320,Fish,Shellfish,Gluten,Dairy
+Pan-Fried Fish seabass fillet with Samphire / Squid / taro gnocchi / Zucchini & ratatouille,Main,Seabass;Samphire;Squid;Taro gnocchi;Zucchini;Ratatouille,320,Fish,Gluten,Egg,shellfish
