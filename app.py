@@ -38,8 +38,17 @@ if allergen_filter:
     for allergen in allergen_filter:
         filtered_data = filtered_data[
             ~filtered_data["allergen"].str.contains(allergen, case=False, na=False)
+            
         ]
+st.subheader("Seasonal Menu / 季節菜單")
 
+season_filter = st.selectbox(
+    "Select season / 選擇季節",
+    ["All", "Spring", "Summer", "Autumn", "Winter"]
+)
+
+if season_filter != "All":
+    filtered_data = filtered_data[filtered_data["season"] == season_filter]
 st.subheader("Dish Database")
 st.dataframe(filtered_data)
 
