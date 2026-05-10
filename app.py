@@ -74,9 +74,9 @@ total_cost = selected_data["cost_price"].sum()
 total_selling = selected_data["selling_price"].sum()
 
 if total_selling > 0:
-    food_cost_percent = total_cost / total_selling * 100
+    food_cost_percentage = total_cost / total_selling * 100
 else:
-    food_cost_percent = 0
+    food_cost_percentage = 0
 
 st.write("## Today's Menu")
 st.write("Starter:", starter)
@@ -86,4 +86,4 @@ st.write("Dessert:", dessert)
 st.write("## Food Cost Summary")
 st.write("Total Cost:", total_cost)
 st.write("Total Selling Price:", total_selling)
-st.write("Food Cost %:", round(food_cost_percent, 1), "%")
+st.write("Food Cost %:", round(food_cost_percentage, 1), "%")
