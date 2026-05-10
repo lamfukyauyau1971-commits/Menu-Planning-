@@ -28,12 +28,16 @@ selected_dishes = [starter, main, dessert]
 
 selected_data = data[data["dish_name"].isin(selected_dishes)]
 
-total_price = selected_data["price"].sum()
+total_cost = selected_data["cost_price"].sum()
+total_selling = selected_data["selling_price"].sum()
+food_cost_percent = total_cost / total_selling * 100
 
 st.write("## Today's Menu")
 st.write("Starter:", starter)
 st.write("Main:", main)
 st.write("Dessert:", dessert)
 
-st.write("## Total Price / Cost")
-st.write(f"Total: {total_price}")
+st.write("## Food Cost Summary")
+st.write("Total Cost:", total_cost)
+st.write("Total Selling Price:", total_selling)
+st.write("Food Cost %:", round(food_cost_percent, 1), "%")
