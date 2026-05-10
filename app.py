@@ -70,8 +70,8 @@ dessert = st.selectbox(
 selected_dishes = [starter, main, dessert]
 selected_data = filtered_data[filtered_data["dish_name"].isin(selected_dishes)]
 
-total_cost = selected_data["cost_price"].sum()
-total_selling = selected_data["selling_price"].sum()
+total_cost = pd.to_numeric(selected_data["cost_price"],errors="coerce").sum()
+total_selling = pd.to_numeric(selected_data["selling_price"],errors="coerce").sum()
 
 if total_selling > 0:
     food_cost_percentage = total_cost / total_selling * 100
