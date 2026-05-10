@@ -6,31 +6,68 @@ st.title("Chef Menu Planner")
 
 data = pd.read_csv("menu_data.csv")
 
+allergen_options = [
+    "Peanuts",
+    "Tree nuts",
+    "Dairy",
+    "Egg",
+    "Soy",
+    "Wheat",
+    "Fish",
+    "Shellfish",
+    "Gluten",
+    "Celery",
+    "Mango",
+    "Spices",
+    "Sesame",
+    "Garlic",
+    "Honey",
+    "Sulphate",
+]
+
+st.subheader("Allergen Filter / 過敏源篩選")
+
+allergen_filter = st.multiselect(
+    "Select allergens to avoid / 選擇要避開的過敏源",
+    allergen_options
+)
+
+filtered_data = data.copy()
+
+if allergen_filter:
+    for allergen in allergen_filter:
+        filtered_data = filtered_data[
+            ~filtered_data["allergen"].str.contains(allergen, case=False, na=False)
+        ]
+
 st.subheader("Dish Database")
-st.dataframe(data)
+st.dataframe(filtered_data)
 
 starter = st.selectbox(
     "Starter",
-    data[data["category"] == "Starter"]["dish_name"]
+    filtered_data[filtered_data["category"] == "Starter"]["dish_name"]
 )
 
 main = st.selectbox(
     "Main",
-    data[data["category"] == "Main"]["dish_name"]
+    filtered_data[filtered_data["category"] == "Main"]["dish_name"]
 )
 
 dessert = st.selectbox(
     "Dessert",
-    data[data["category"] == "Dessert"]["dish_name"]
+    filtered_data[filtered_data["category"] == "Dessert"]["dish_name"]
 )
 
 selected_dishes = [starter, main, dessert]
-
-selected_data = data[data["dish_name"].isin(selected_dishes)]
+selected_data = filtered_data[filtered_data["dish_name"].isin(selected_dishes)]
 
 total_cost = selected_data["cost_price"].sum()
 total_selling = selected_data["selling_price"].sum()
-food_cost_percent = total_cost / total_selling * 100
+
+if total_selling > 0:
+    food_cost_percent = total_cost / total_selling * 100
+else:
+    food_cost_percent = 0
 
 st.write("## Today's Menu")
 st.write("Starter:", starter)
